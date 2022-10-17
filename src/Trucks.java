@@ -17,7 +17,7 @@ public class Trucks extends Transport implements Competing {
 
     @Override
     public String toString() {
-        return "Машина: " + super.toString();
+        return "" + super.toString();
     }
 
     @Override
