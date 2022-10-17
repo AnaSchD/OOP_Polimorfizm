@@ -1,26 +1,24 @@
-public class Bus extends Transport implements Competing {
+public class Bus extends Transport implements Competing{
 
-    public enum TypeCapacity {ESPECIALLY_SMALL, SMALL, AVERAGE, BIG, ESPECIALLY_BIG}
+    public enum TypeCapacity { ESPECIALLY_SMALL ("до 10 мест") , SMALL ("до 25"),
+        AVERAGE ("40–50"), BIG ("60–80"), ESPECIALLY_BIG ("100–120 мест");
+
+        private String description;
+
+        TypeCapacity(String description) {
+            this.description = description;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+    }
 
 
     public Bus(String model, String brand, double engineVolume) {
         super(model, brand, engineVolume);
     }
 
-    private String description;
-
-    public Bus(String model, String brand, double engineVolume, String description) {
-        super(model, brand, engineVolume);
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     @Override
     public void startMoving() {
@@ -31,7 +29,6 @@ public class Bus extends Transport implements Competing {
     public void finishTheMoving() {
         System.out.println("Выключить двигатель и электронные системы автобуса");
     }
-
     @Override
     public String toString() {
         return "" + super.toString();
