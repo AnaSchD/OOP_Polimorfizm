@@ -33,6 +33,8 @@ public abstract class Transport {
 
     public abstract void finishTheMoving();
 
+    public abstract void  printType ();
+
 
     @Override
     public String toString() {

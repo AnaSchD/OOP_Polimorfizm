@@ -1,10 +1,19 @@
 public class PassengerCars extends Transport implements Competing {
 
-    public enum TypeBody {
-        SEDAN, HATCHBACK, COMPARTMENT, STATION_WAGON, OFF_ROAD_VEHICLE, CROSSOVER,
-        PICKUP, VAN, MINIVAN
+    private TypeBody typeBody;
+
+    public PassengerCars(String model, String brand, double engineVolume, TypeBody typeBody) {
+        super(model, brand, engineVolume);
+        this.typeBody = typeBody;
     }
 
+    public TypeBody getTypeBody() {
+        return typeBody;
+    }
+
+    public void setTypeBody(TypeBody typeBody) {
+        this.typeBody = typeBody;
+    }
 
     public PassengerCars(String model, String brand, double engineVolume) {
         super(model, brand, engineVolume);
@@ -18,6 +27,15 @@ public class PassengerCars extends Transport implements Competing {
     @Override
     public void finishTheMoving() {
         System.out.println("Нажать на тормоз, выключить двигатель и вытащить ключ из замка зажигания");
+    }
+
+    @Override
+    public void printType() {
+        if (typeBody == null) {
+            System.out.println("Данных недостаточно");
+        } else {
+            System.out.println("Тип легкового автомобиля: " + typeBody);
+        }
     }
 
     @Override
