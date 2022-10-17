@@ -1,7 +1,9 @@
 public class Trucks extends Transport implements Competing {
 
 
-    public Trucks (String model, String brand, double engineVolume) {
+    public enum TypeLoadCapacity {N1, N2, N3}
+
+    public Trucks(String model, String brand, double engineVolume) {
         super(model, brand, engineVolume);
     }
 

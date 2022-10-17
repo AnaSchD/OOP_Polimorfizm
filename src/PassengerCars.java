@@ -1,5 +1,10 @@
 public class PassengerCars extends Transport implements Competing {
 
+    public enum TypeBody {
+        SEDAN, HATCHBACK, COMPARTMENT, STATION_WAGON, OFF_ROAD_VEHICLE, CROSSOVER,
+        PICKUP, VAN, MINIVAN
+    }
+
 
     public PassengerCars(String model, String brand, double engineVolume) {
         super(model, brand, engineVolume);
