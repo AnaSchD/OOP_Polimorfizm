@@ -30,11 +30,21 @@ public class PassengerCars extends Transport implements Competing {
     }
 
     @Override
-    public void printType() {
+    public void printType(Driver <?> driver, Transport transport) {
         if (typeBody == null) {
             System.out.println("Данных недостаточно");
         } else {
             System.out.println("Тип легкового автомобиля: " + typeBody);
+        }
+    }
+
+    @Override
+    public boolean passDiagnostics() {
+        double a =  Math.random();
+        if (a > 0.5) {
+            return true;
+        } else {
+            return false;
         }
     }
 

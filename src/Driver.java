@@ -15,7 +15,7 @@ public abstract class Driver<T extends Transport & Competing> {
         }
 
         if (typeOfRight != 'B' && typeOfRight != 'C' && typeOfRight != 'D') {
-            System.out.println("Необходимо получить права");
+            throw new IllegalArgumentException("Необходимо указать тип прав");
         } else {
             this.typeOfRight = typeOfRight;
         }
@@ -51,7 +51,7 @@ public abstract class Driver<T extends Transport & Competing> {
     }
 
     public void printDriver() {
-        System.out.println("Водитель " + fullName + " управляет автомобилем " + car.getBrand() + car.getModel() + " и будет учавствовать в заезде.");
+        System.out.println("Водитель " + fullName + " управляет автомобилем " + car.getBrand() + car.getModel() + " и будет учавствовать в заезде." );
     }
 
     public String getFullName() {

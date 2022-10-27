@@ -31,13 +31,19 @@ public class Bus extends Transport implements Competing {
     }
 
     @Override
-    public void printType() {
+    public void printType(Driver <?> driver, Transport transport) {
         if (typeCapacity == null) {
             System.out.println("Данных недостаточно");
         } else {
 
             System.out.println("Грузоподъемность от " + typeCapacity.getDESCRIPTION_FROM() + " до "+ typeCapacity.getDESCRIPTION_TO());
         }
+    }
+
+    @Override
+    public boolean passDiagnostics() throws DiagnosticsException {
+        return false;
+//        throw new DiagnosticsException ("Автобус " + getBrand() + getModel() + " в диагностике не нуждается");
     }
 
     @Override

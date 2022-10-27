@@ -31,13 +31,23 @@ public class Trucks extends Transport implements Competing {
     }
 
     @Override
-    public void printType() {
+    public void printType(Driver<?> driver, Transport transport) {
         if (typeLoadCapacity == null) {
             System.out.println("Данных недостаточно");
         } else {
             String DESCRIPTION_FROM = typeLoadCapacity.getDESCRIPTION_FROM() == null ? "" : "от" + typeLoadCapacity.getDESCRIPTION_FROM() + " ";
             String DESCRIPTION_TO = typeLoadCapacity.getDESCRIPTION_TO() == null ? "" : " до" + typeLoadCapacity.getDESCRIPTION_TO();
             System.out.println("Грузоподъемность от " + DESCRIPTION_FROM + DESCRIPTION_TO);
+        }
+    }
+
+    @Override
+    public boolean passDiagnostics() {
+        double a =  Math.random();
+        if (a > 0.5) {
+            return true;
+        } else {
+            return false;
         }
     }
 

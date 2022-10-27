@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 public abstract class Transport {
 
     private String model;
@@ -33,8 +31,9 @@ public abstract class Transport {
 
     public abstract void finishTheMoving();
 
-    public abstract void  printType ();
+    public abstract void printType(Driver<?> driver, Transport transport);
 
+    public abstract boolean passDiagnostics ()throws DiagnosticsException;
 
     @Override
     public String toString() {
