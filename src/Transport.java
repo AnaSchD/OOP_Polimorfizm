@@ -1,8 +1,15 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Transport {
 
     private String model;
     private String brand;
     private double engineVolume;
+
+    private List <Driver<?>> drivers = new ArrayList<>();
+    private List <Mechanic<?>> mechanics = new ArrayList<>();
+    private List <Sponsor> sponsors = new ArrayList<>();
 
 
     public Transport(String model, String brand, double engineVolume) {
@@ -25,6 +32,16 @@ public abstract class Transport {
         } else {
             this.engineVolume = engineVolume;
         }
+    }
+
+    public void addDriver(Driver<?> driver) {
+        drivers.add(driver);
+    }
+    public void addMechanic(Mechanic<?> mechanic) {
+        mechanics.add(mechanic);
+    }
+    public void addSponsor(Sponsor sponsor) {
+        sponsors.add(sponsor);
     }
 
     public abstract void startMoving();
@@ -53,5 +70,13 @@ public abstract class Transport {
         return engineVolume;
     }
 
-
+    public List<Driver<?>> getDrivers() {
+        return drivers;
+    }
+    public List<Mechanic<?>> getMechanics() {
+        return mechanics;
+    }
+    public List<Sponsor> getSponsors() {
+        return sponsors;
+    }
 }
