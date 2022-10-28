@@ -36,18 +36,38 @@ public class Main {
         Mechanic ilya = new Mechanic<>("Ilya", "Petrov", "Lada", car3);
 
 
+//
+//        bus1.addDriver(maxim);
+//
+//        bus1.addMechanic(zhenya);
+//        bus1.addMechanic(ilya);
+//        bus1.addMechanic(petya);
+//
+//        bus1.addSponsor(vasya);
+//        bus1.addSponsor(misha);
+//        bus1.addSponsor(sasha);
+//
+//        infoTransport(bus1);
 
-        bus1.addDriver(maxim);
 
-        bus1.addMechanic(zhenya);
-        bus1.addMechanic(ilya);
-        bus1.addMechanic(petya);
+        ServiceStation <Transport> transportServiceStation = new ServiceStation<>();
 
-        bus1.addSponsor(vasya);
-        bus1.addSponsor(misha);
-        bus1.addSponsor(sasha);
+        transportServiceStation.addTransportToQueue(truck2);
+        transportServiceStation.addTransportToQueue(car1);
+        transportServiceStation.addTransportToQueue(bus1);
 
-        infoTransport(bus1);
+        System.out.println(transportServiceStation);
+
+        transportServiceStation.technicalInspection(truck2);
+        transportServiceStation.technicalInspection(car1);
+
+        System.out.println(transportServiceStation);
+
+
+
+
+
+
 
 
 
