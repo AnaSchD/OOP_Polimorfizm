@@ -4,18 +4,23 @@ public class Mechanic <T extends Transport> {
     private String surname;
     private String company;
 
-    public Mechanic(String name, String surname, String company) {
+    private Transport transport;
+
+    public Mechanic(String name, String surname, String company, T transport) {
         this.name = name;
         this.surname = surname;
         this.company = company;
+        this.transport = transport;
     }
 
-    public void fixTheTransport() {
-
+    public void fixTheTransport(T transport) {
+        System.out.println("Механик " + name + surname + " починил машину " +
+                transport.getModel() + transport.getBrand());
     }
 
-    public void maintenance() {
-
+    public void maintenance(T transport) {
+        System.out.println("Механик " + name + surname + " провел диагностику транспортному средству " +
+                transport.getModel() + transport.getBrand());
     }
 
     public String getName() {
@@ -30,7 +35,17 @@ public class Mechanic <T extends Transport> {
         return company;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    public Transport getTransport() {
+        return transport;
+    }
+
+    @Override
+    public String toString() {
+        return "Mechanic{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", company='" + company + '\'' +
+                ", transport=" + transport +
+                '}';
     }
 }

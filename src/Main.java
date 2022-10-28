@@ -19,13 +19,39 @@ public class Main {
         Bus bus3 = new Bus(" 5239 ", "НефАЗ", 4.7, TypeCapacity.SMALL);
         Bus bus4 = new Bus(" 456 ", "Уаз", 4.7, TypeCapacity.ESPECIALLY_SMALL);
 
-        check(bus1, truck2, car1, truck3, truck1);
+        //check(bus1, truck2, car1, truck3, truck1);
 
 
         DriverB maxim = new DriverB("Ivanov Maxim Ivanovich", 'B', 3.2, car1);
         DriverC alexander = new DriverC("Petrov Alexander Alexandrovich", 'C', 4.5, truck2);
         DriverD ivan = new DriverD("Alekseev Aleksey Alekseevich", 'D', 6.4, bus3);
 //
+
+        Sponsor vasya = new Sponsor<>("Vasya", 25000);
+        Sponsor misha = new Sponsor<>("Misha", 2000);
+        Sponsor sasha = new Sponsor<>("Sasha", 13000);
+
+        Mechanic petya = new Mechanic<>("Petya", "Petrov", "Lada", truck3);
+        Mechanic zhenya = new Mechanic<>("Zhenya", "Ivanov", "Lada2", bus3);
+        Mechanic ilya = new Mechanic<>("Ilya", "Petrov", "Lada", car3);
+
+
+
+        bus1.addDriver(maxim);
+
+        bus1.addMechanic(zhenya);
+        bus1.addMechanic(ilya);
+        bus1.addMechanic(petya);
+
+        bus1.addSponsor(vasya);
+        bus1.addSponsor(misha);
+        bus1.addSponsor(sasha);
+
+        infoTransport(bus1);
+
+
+
+
 //
 //        alexander.printDriver();
 //        truck2.printType(alexander, truck3);
@@ -50,5 +76,11 @@ public class Main {
 
     }
 }
+
+    public static void infoTransport (Transport transport) {
+        System.out.println(transport.getDrivers());
+        System.out.println(transport.getMechanics());
+        System.out.println(transport.getSponsors());
+    }
 
 }

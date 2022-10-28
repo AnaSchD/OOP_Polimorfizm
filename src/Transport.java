@@ -44,6 +44,8 @@ public abstract class Transport {
         sponsors.add(sponsor);
     }
 
+
+
     public abstract void startMoving();
 
     public abstract void finishTheMoving();
