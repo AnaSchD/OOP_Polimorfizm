@@ -1,5 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
+
+
     public static void main(String[] args) throws DiagnosticsException {
+
+
+        List<List<Integer>> biDemArrList = new ArrayList<>();
 
 
         PassengerCars car1 = new PassengerCars(" Veyron 16.4 ", "Bugatti", 2.5, TypeBody.MINIVAN);
@@ -50,28 +58,21 @@ public class Main {
 //        infoTransport(bus1);
 
 
-        ServiceStation <Transport> transportServiceStation = new ServiceStation<>();
-
-        transportServiceStation.addTransportToQueue(truck2);
-        transportServiceStation.addTransportToQueue(car1);
-        transportServiceStation.addTransportToQueue(bus1);
-
-        System.out.println(transportServiceStation);
-
-        transportServiceStation.technicalInspection(truck2);
-        transportServiceStation.technicalInspection(car1);
-
-        System.out.println(transportServiceStation);
-
-
+//        ServiceStation <Transport> transportServiceStation = new ServiceStation<>();
+//
+//        transportServiceStation.addTransportToQueue(truck2);
+//        transportServiceStation.addTransportToQueue(car1);
+//        transportServiceStation.addTransportToQueue(bus1);
+//
+//        System.out.println(transportServiceStation);
+//
+//        transportServiceStation.technicalInspection(truck2);
+//        transportServiceStation.technicalInspection(car1);
+//
+//        System.out.println(transportServiceStation);
 
 
-
-
-
-
-
-
+        example();
 //
 //        alexander.printDriver();
 //        truck2.printType(alexander, truck3);
@@ -82,6 +83,35 @@ public class Main {
 //        car1.printType(maxim, car3);
     }
 
+    public static void example() {
+        List<List<String>> biDemArrList = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            biDemArrList.add(i, new ArrayList<>());
+            for (int j = 0; j < 8; j++) {
+                if (i % 2 == 0) {
+                    if (j % 2 == 0) {
+                        biDemArrList.get(i).add(j, "◯");
+                    } else {
+                        biDemArrList.get(i).add(j, "●");
+                    }
+                } else {
+                    if (j % 2 != 0) {
+                        biDemArrList.get(i).add(j, "◯");
+                    } else {
+                        biDemArrList.get(i).add(j, "●");
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print(biDemArrList.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }
+
+    }
+
     public static void check(Transport... transports) throws DiagnosticsException {
         for (Transport transport : transports) {
             if (transport.getClass() == Bus.class) {
@@ -89,18 +119,19 @@ public class Main {
                 continue;
             }
             if (!transport.passDiagnostics()) {
-                throw new DiagnosticsException(transport.getBrand()+ " " + transport.getModel() + " не прошел диагностику");
+                throw new DiagnosticsException(transport.getBrand() + " " + transport.getModel() + " не прошел диагностику");
             } else {
-                System.out.println(transport.getBrand()+ " " + transport.getModel() + " прошел диагностику");
+                System.out.println(transport.getBrand() + " " + transport.getModel() + " прошел диагностику");
             }
 
+        }
     }
-}
 
-    public static void infoTransport (Transport transport) {
+    public static void infoTransport(Transport transport) {
         System.out.println(transport.getDrivers());
         System.out.println(transport.getMechanics());
         System.out.println(transport.getSponsors());
     }
+
 
 }
