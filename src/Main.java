@@ -1,5 +1,7 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 public class Main {
 
@@ -132,6 +134,36 @@ public class Main {
         System.out.println(transport.getMechanics());
         System.out.println(transport.getSponsors());
     }
+
+    private Queue<String> queue1 = new ArrayDeque<>(5);
+    private Queue<String> queue2 = new ArrayDeque<>(5);
+
+
+    public void add() {
+        for (int i = 0; i < Math.random() * 5; i++) {
+            queue1.offer("Mike" + i);
+        }
+        for (int i = 0; i < Math.random() * 5; i++) {
+            queue2.offer("Mike" + i);
+        }
+        System.out.println(queue1);
+        System.out.println(queue2);
+    }
+
+    public void queue3 (String name, Queue <String> q1, Queue<String> q2) {
+        if (q1.size() == q2.size() && q1.size() == 5) {
+            System.out.println("Галя!");
+            return;
+        }
+        if (q1.size() < q2.size()) {
+            q1.add(name);
+        }
+        if (q2.size() < q1.size()) {
+            q2.add(name);
+        }
+    }
+
+
 
 
 }
