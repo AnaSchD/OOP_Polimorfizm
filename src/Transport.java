@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public abstract class Transport {
@@ -7,9 +8,9 @@ public abstract class Transport {
     private String brand;
     private double engineVolume;
 
-    private List <Driver<?>> drivers = new ArrayList<>();
-    private List <Mechanic<?>> mechanics = new ArrayList<>();
-    private List <Sponsor> sponsors = new ArrayList<>();
+    private HashSet<Driver<?>> drivers = new HashSet<>();
+    private HashSet <Mechanic<?>> mechanics = new HashSet<>();
+    private HashSet <Sponsor> sponsors = new HashSet<>();
 
 
     public Transport(String model, String brand, double engineVolume) {
@@ -72,13 +73,13 @@ public abstract class Transport {
         return engineVolume;
     }
 
-    public List<Driver<?>> getDrivers() {
+    public HashSet<Driver<?>> getDrivers() {
         return drivers;
     }
-    public List<Mechanic<?>> getMechanics() {
+    public HashSet<Mechanic<?>> getMechanics() {
         return mechanics;
     }
-    public List<Sponsor> getSponsors() {
+    public HashSet<Sponsor> getSponsors() {
         return sponsors;
     }
 }
