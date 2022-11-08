@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Sponsor <T extends Transport> {
 
     private String name;
@@ -27,5 +29,18 @@ public class Sponsor <T extends Transport> {
                 "name='" + name + '\'' +
                 ", amountOfSupport=" + amountOfSupport +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sponsor<?> sponsor = (Sponsor<?>) o;
+        return name.equals(sponsor.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
